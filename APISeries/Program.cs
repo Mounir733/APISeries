@@ -1,4 +1,12 @@
+using APISeries.Models.EntityFramework;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<SeriesDbContext>(options =>
+  options.UseNpgsql(builder.Configuration.GetConnectionString("SeriesDbContext")));
 
 // Add services to the container.
 
@@ -15,6 +23,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseHttpsRedirection();
 

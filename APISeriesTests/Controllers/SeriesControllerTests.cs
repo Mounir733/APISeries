@@ -52,7 +52,7 @@ namespace APISeries.Controllers.Tests
             List<Serie> listeSeriesRecuperees = new List<Serie> { serie1, serie2, serie3 };
 
             CollectionAssert.AreEqual(result.Where(s => s.Serieid <= 3).ToList(), listeSeriesRecuperees);
-
+            
 
         }
 
